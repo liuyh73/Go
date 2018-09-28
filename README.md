@@ -113,7 +113,7 @@ export PATH=$PATH:$HOME/go/bin:$GOPATH/bin
 
 Windows下安装类似，运行`go/src`文件夹下的`all.bat`，然后设置环境变量即可。
 
-![1538060727706](images\1.png)
+![1538060727706](images/1.png)
 
 - Go标准包安装
 
@@ -141,7 +141,7 @@ $ sudo yum install golang
 $ rpm -ql golang |more
 ```
 
-![1538060751484](images\2.png)
+![1538060751484](images/2.png)
 
 测试安装是否成功
 
@@ -240,7 +240,7 @@ hello, world
 
 Go语言自带一套完整的命令操作工具，在命令行输入go即可查看：
 
-![1538060818447](images\3.png)
+![1538060818447](images/3.png)
 
 **go build**
 
@@ -545,4 +545,4 @@ $ go get -u github.com/Go-zh/tour/gotour	# -u参数表示更新依赖包
 $ gotour
 ```
 
-![1538060404713](images\4.png)
+![1538060404713](images/4.png)
