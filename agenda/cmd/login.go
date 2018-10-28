@@ -44,6 +44,7 @@ var loginCmd = &cobra.Command{
 					checkErr("Fail to update the login info")
 				} else {
 					fmt.Println("Login", loginUser.Username, "successfully!")
+					models.Logger.Println("Login", loginUser.Username, "successfully!")
 				}
 			} else {
 				checkErr("Please check the password!")
@@ -58,6 +59,7 @@ func init() {
 	rootCmd.AddCommand(loginCmd)
 	loginCmd.Flags().StringVarP(&user.Username, "username", "u", "", "The User's Username")
 	loginCmd.Flags().StringVarP(&user.Password, "password", "p", "", "The User's Password")
+	models.Logger.SetPrefix("[agenda login]")
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command

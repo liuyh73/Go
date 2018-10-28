@@ -16,7 +16,6 @@ package cmd
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/liuyh73/Go/agenda/models"
 	"github.com/spf13/cobra"
@@ -56,6 +55,7 @@ var registerCmd = &cobra.Command{
 			checkErr("Fail to insert into table")
 		}
 		fmt.Println("Register", user.Username, "successfully!")
+		models.Logger.Println("Register", user.Username, "successfully!")
 	},
 }
 
@@ -75,9 +75,5 @@ func init() {
 	registerCmd.Flags().StringVarP(&user.Password, "password", "p", "", "The User's Password")
 	registerCmd.Flags().StringVarP(&user.Email, "email", "e", "", "The User's Email")
 	registerCmd.Flags().StringVarP(&user.Telephone, "telephone", "P", "", "The User's telephone")
-}
-
-func checkErr(err string) {
-	fmt.Println(err)
-	os.Exit(1)
+	models.Logger.SetPrefix("[agenda register]")
 }

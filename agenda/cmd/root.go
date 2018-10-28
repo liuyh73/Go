@@ -55,7 +55,6 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -82,4 +81,9 @@ func initConfig() {
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 	}
+}
+
+func checkErr(err string) {
+	fmt.Println(err)
+	os.Exit(1)
 }
