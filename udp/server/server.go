@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/liuyh73/LFTP"
+	"github.com/liuyh73/Go/udp"
 )
 
 func checkErr(err error) {

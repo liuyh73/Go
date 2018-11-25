@@ -7,7 +7,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/liuyh73/LFTP"
+	"github.com/liuyh73/Go/udp"
 )
 
 func checkErr(err error) {
@@ -36,16 +36,16 @@ func main() {
 				toWrite = line[written : written+LFTP.SERVER_RECV_LEN]
 			} else {
 				toWrite = line[written:]
-				n, err = conn.Write([]byte(toWrite))
-				checkErr(err)
-
-				fmt.Println("Write: ", toWrite)
-
-				msg := make([]byte, LFTP.SERVER_RECV_LEN)
-				n, err = conn.Read(msg)
-
-				fmt.Println("Response: ", string(msg))
 			}
+			n, err = conn.Write([]byte(toWrite))
+			checkErr(err)
+
+			fmt.Println("Write: ", toWrite)
+
+			msg := make([]byte, LFTP.SERVER_RECV_LEN)
+			n, err = conn.Read(msg)
+
+			fmt.Println("Response: ", string(msg))
 		}
 	}
 }
